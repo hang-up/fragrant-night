@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Coming soon</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./style/app.css">
+  </head>
+  <body>
+
+
+    <script type="x-template" id="timer-template">
+      <div class="absolute-center text-center">
+        <h1 class="--title-big-h1">{{ message }} </h1>
+
+        <ul class="--list-inline">
+          <li v-show="months != 0">
+            <h1 class="--title-h1">{{{ months }}} months</h1>
+          </li>
+          <li v-show="days != 0">
+            <h1 class="--title-h1">{{{ days }}} days</h1>
+          </li>
+          <li v-show="hours != 0">
+            <h1 class="--title-h1">{{{ hours }}} hours</h1>
+          </li>
+          <li v-show="minutes != 0">
+            <h1 class="--title-h1">{{{ minutes }}} minutes</h1>
+          </li>
+          <li>
+          <h1 class="--title-h1">{{{ seconds }}} seconds</h1>
+          </li>
+        </ul>
+      </div>
+    </script>
+
+
+    <script type="x-template" id="coming-soon-template">
+      <div class="dimmer" :style="{ background: background }">
+        <img class="absolute-center" :src="image" alt="Logo"/>
+      </div>
+    </script>
+
+
+    <div id="wrapper">
+      <coming-soon
+        background="#fff"
+        image="../assets/logo.png"
+        >
+        </coming-soon>
+
+      <timer
+        :year="2016"
+        :month="05"
+        :day="6"
+        color="#888"
+        background="#fff"
+        message="We'll be live in:"
+        >
+        </timer>
+    </div>
+
+
+    <script src="scripts/countdown.min.js"></script>
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+    <script src="scripts/app.js"></script>
+  </body>
+</html>
